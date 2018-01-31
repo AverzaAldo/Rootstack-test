@@ -1,0 +1,34 @@
+<div class="container">
+  <h2> Star Wars Characters</h2>
+  <hr>
+  <div class="col-xs-12">
+    <div class="modal-body row">
+      <div class="col-md-6">
+        <p><label>Filter</label>
+          <select class="form-control">
+            <option value="">All </option>
+            <option value="1">Humans</option>
+            <option value="2">Droids</option>
+          </select>
+        </p>
+        <table class="table table-striped table-hover table-condensed">
+          <tbody>
+            <tr *ngFor="let i of names">
+              <td (click)="onClickName(i)"> {{ i.name }} </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-6" [hidden]="hideInfo" >
+        <h3> Name: {{ curName }}</h3>
+        <ul>
+          <li><label> Gender: <i [class]="genderIcon()" aria-hidden="true"></i></label></li>
+          <li><label> Birth Year: {{ curBirth }}</label></li>
+          <li><label> Height(cm): {{ curHeight }}</label></li>
+          <li><label> Mass(kg): {{ curMass }}</label></li>
+          <li><label> Hair Color: {{ curHair }}</label></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
